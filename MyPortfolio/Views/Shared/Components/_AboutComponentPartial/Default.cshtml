@@ -1,0 +1,39 @@
+﻿<section id="about" class="s-about target-section">
+
+    <div class="row narrow section-intro has-bottom-sep">
+        <div class="col-full text-center">
+            <h3>Hakkımda</h3>
+            <h1>Ben Kimim</h1>
+            <p class="lead">Ben Kübra Yalçın. Osmaniye Korkut Ata Üniversitesi 3. sınıf bilgisayar mühendisliği 3. sınıf öğrencisiyim. Şu an aktif olarak web programlama alanı ile ilgileniyor, aynı zamanda projeler geliştiriyorum.</p>
+        </div>
+    </div>
+
+    <div class="row about-content">
+
+        <div class="col-six tab-full left">
+            <h3>Ön Yazı</h3>
+
+            <p>Osmaniye Korkut Ata Üniversitesi Bilgisayar Mühendisliği 3. sınıf öreğncisiyim. araştırmayı, yeni bilgiler öğrenmeyi ve her geçen gün kendiöi geliştirmey, seviyorum.</p>
+
+            <p>Azimli, hırslı ve sorumluluk shini biri olmanın yanı sıra takım çalışmasına da yatkınım. Şu an aktif olarak asp.net core mvc, web api gibi web alanlarında projeer geliştiriyor ve aynı zamanda yeni bilgiler öğreniyorum</p>
+                
+        </div>
+        @await Component.InvokeAsync("_SkillComponentPartial")
+        
+
+    </div> <!-- end about-content -->
+
+    <div class="row about-content about-content--buttons">
+
+        <div class="col-six tab-full left">
+            <a href="#0" class="btn btn--primary full-width">CV'Mİ İNDİR</a>
+        </div>
+        <div class="col-six tab-full right">
+            <a href="#0" class="btn full-width">İletişim</a>
+        </div>
+
+    </div> <!-- end about-content buttons -->
+    @await Component.InvokeAsync("_ExperienceComponentPartial")
+    <!-- end about-content timeline -->
+
+</section>
