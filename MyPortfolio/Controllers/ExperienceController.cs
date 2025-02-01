@@ -40,5 +40,40 @@ namespace MyPortfolio.Controllers
 			}
 			return View(experience); // Hata varsa aynı sayfaya geri dön
 		}
+		// Deneyimi güncelleme formunu açar düncellenecek verileri id göre bulma
+		[HttpGet]
+		public IActionResult UpdateExperience(int id)
+		{
+			var experience = _context.Experiences.Find(id);
+			if (experience == null)
+			{
+				return NotFound();
+			}
+			return View(experience);
+		}
+
+		// Deneyimi günceller ve kaydeder
+		[HttpPost]
+		public IActionResult UpdateExperience(Experience experience)
+		{
+			if (ModelState.IsValid)
+			{
+				_context.Experiences.Update(experience);
+				_context.SaveChanges();
+				return RedirectToAction("ExperienceList");
+			}
+			return View(experience);
+		}
+		// Belirtilen ID'ye sahip deneyimi siler
+		public IActionResult DeleteExperience(int id)
+		{
+			var experience = _context.Experiences.Find(id);
+			if (experience != null)
+			{
+				_context.Experiences.Remove(experience);
+				_context.SaveChanges();
+			}
+			return RedirectToAction("ExperienceList");
+		}
 	}
 }
