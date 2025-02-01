@@ -76,5 +76,20 @@ namespace MyPortfolio.Controllers
             }
             return View(toDoList);
         }
-    }
+		public IActionResult ChangeToDoListToTrue(int id) // Görevi tamamlandı olarak işaretlemek için
+		{
+			var value = _context.ToDoLists.Find(id);
+			value.Status = true;
+			_context.SaveChanges();
+			return RedirectToAction("Index");
+		}
+
+		public IActionResult ChangeToDoListToFalse(int id) // Görevi tamamlanmadı olarak işaretlemek için
+		{
+			var value = _context.ToDoLists.Find(id);
+			value.Status = false;
+			_context.SaveChanges();
+			return RedirectToAction("Index");
+		}
+	}
 }

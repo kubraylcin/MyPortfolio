@@ -1,7 +1,8 @@
 ﻿@model List<ToDoList>
 @{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/Layout/Index.cshtml";
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Layout/Index.cshtml";
+	int count = 0;
 }
 <!--ToDoListList Sayfasının içeriğini aldık-->
 <div class="content">
@@ -32,17 +33,18 @@
 							<tbody>
 								@foreach (var item in Model)
 								{
+									count++;
 									<tr>
-										<td>@item.ToDoListId</td>
+										<td>@count</td>
 										<td>@item.Title</td>
 										<td>@item.Date</td>
 										@if (item.Status == true)
 										{
-											<td><a href="/ToDoList/ChangeIsReadToFalse/@item.ToDoListId" class="btn btn-outline-dark">Yapılmadı Olarak İşaretle</a></td>
+											<td><a href="/ToDoList/ChangeToDoListToFalse/@item.ToDoListId" class="btn btn-outline-dark">Yapılmadı Olarak İşaretle</a></td>
 										}
 										else
 										{
-											<td><a href="/ToDoList/ChangeIsReadToTrue/@item.ToDoListId" class="btn btn-outline-info">Yapıldı Olarak İşaretle</a></td>
+											<td><a href="/ToDoList/ChangeToDoListToTrue/@item.ToDoListId" class="btn btn-outline-info">Yapıldı Olarak İşaretle</a></td>
 										}
 										<td><a href="/ToDoList/DeleteToDoList/@item.ToDoListId" class="btn btn-danger">Sil</a></td>
 										<td><a href="/ToDoList/UpdateToDoList/@item.ToDoListId" class="btn btn-success">Güncelle</a></td>
