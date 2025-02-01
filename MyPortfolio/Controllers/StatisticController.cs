@@ -1,11 +1,26 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MyPortfolio.DAL.Context;
 
 namespace MyPortfolio.Controllers
 {
 	public class StatisticController : Controller
 	{
+		private readonly MyPortfolioContext _context;
+
+		public StatisticController(MyPortfolioContext context)
+		{
+			_context = context;
+		}
 		public IActionResult Index()
 		{
+			ViewBag.v1=_context.Skills.Count();
+			ViewBag.v2=_context.Messages.Count();//mesaj sayfasındaki toplam mesaj
+			ViewBag.v3=_context.Messages.Where(x=>x.IsRead==false).Count(); //okunmamış mesajların sayısı
+			ViewBag.v4=_context.Messages.Where(x=>x.IsRead==true).Count(); //okunmuşş mesajların sayısı
+			ViewBag.v5=_context.Testimonials.Count();
+			ViewBag.v6=_context.Experiences.Count();
+			ViewBag.v7=_context.Portfolios.Count();
+
 			return View();
 		}
 	}
