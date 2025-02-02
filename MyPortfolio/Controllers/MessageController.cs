@@ -47,6 +47,8 @@ namespace MyPortfolio.Controllers
         public IActionResult MessageDetail(int id)
         {
             var value = _context.Messages.Find(id);
+            value.IsRead = true;
+            _context.SaveChanges();
             return View(value);
         }
 		[HttpGet]
