@@ -1,42 +1,23 @@
-﻿<footer>
+﻿@model List<SocialMedia>
+
+<footer>
     <div class="row">
         <div class="col-full">
 
             <div class="footer-logo">
-                <a class="footer-site-logo" href="#0"><img src="~/hola-master/images/logo.png" alt="Homepage"></a>
+                <a class="footer-site-logo" href="#"><img src="~/icons/kubra-logo.png" alt="Homepage"></a>
             </div>
 
             <ul class="footer-social">
-                <li>
-                    <a href="#0">
-                        <i class="im im-facebook" aria-hidden="true"></i>
-                        <span>Facebook</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#0">
-                        <i class="im im-twitter" aria-hidden="true"></i>
-                        <span>Twitter</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#0">
-                        <i class="im im-instagram" aria-hidden="true"></i>
-                        <span>Instagram</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#0">
-                        <i class="im im-behance" aria-hidden="true"></i>
-                        <span>Behance</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#0">
-                        <i class="im im-pinterest" aria-hidden="true"></i>
-                        <span>Pinterest</span>
-                    </a>
-                </li>
+                @foreach (var item in Model)
+                {
+                    <li>
+                        <a href="@item.Url" target="_blank">
+                            <i class="@item.Icon" aria-hidden="true"></i>
+                            <span>@item.Title</span>
+                        </a>
+                    </li>
+                }
             </ul>
 
         </div>
@@ -46,8 +27,8 @@
 
         <div class="col-twelve">
             <div class="copyright">
-                <span>© Copyright Portfolio @DateTime.Now.Year</span>
-                <span>Design by <a href="https://www.styleshout.com/">Asp . net core 6.0</a></span>
+                <span>© Copyright MyPortfolyo @DateTime.Now.Year</span>
+                <span>Design by <a href="https://www.styleshout.com/">styleshout</a></span>
             </div>
 
             <div class="go-top">
@@ -101,6 +82,6 @@
 
 <!-- Java Script
 ================================================== -->
-<script src="~/hola-master/js/jquery-3.2.1.min.js"></script>
-<script src="~/hola-master/js/plugins.js"></script>
-<script src="~/hola-master/js/main.js"></script>
+<script src="~/portfolio-theme/js/jquery-3.2.1.min.js"></script>
+<script src="~/portfolio-theme/js/plugins.js"></script>
+<script src="~/portfolio-theme/js/main.js"></script>

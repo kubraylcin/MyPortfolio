@@ -1,7 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using MyPortfolio.DAL.Context;
+using MyPortfolio.DAL.Extensions;
+
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.LoadDataLayerExtension(builder.Configuration); // ImageHelper için DI cercevesi
 
 // Add services to the container.
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation(); ;

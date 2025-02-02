@@ -1,17 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MyPortfolio.DAL.Context;
+using System;
 
 namespace MyPortfolio.ViewComponents
 {
-    public class _FooterComponentPartial:ViewComponent
+    public class FeatureSocialMedia : ViewComponent
     {
         private readonly MyPortfolioContext _context;
 
-        public _FooterComponentPartial(MyPortfolioContext context)
+        public FeatureSocialMedia(MyPortfolioContext context)
         {
             _context = context;
         }
-        public IViewComponentResult Invoke() {
+        public IViewComponentResult Invoke()
+        {
             var values = _context.SocialMedias.ToList();
             return View(values);
         }
