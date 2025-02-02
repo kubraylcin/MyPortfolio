@@ -1,0 +1,31 @@
+﻿@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+@await Component.InvokeAsync("_LayoutHeadComponentPartial")
+
+<body>
+	<div class="wrapper">
+		@await Component.InvokeAsync("_LayoutNavbarComponentPartial")
+
+		@await Component.InvokeAsync("_LayoutSidebarComponentPartial")
+
+		<!--Burada typropyh main panel vardı biz o kısmı sildik burası porjemin content alanı
+			renderbody()= bu sayfaya bağlı olaraak gelecek sayfalar sayfamızın tam olarak bu kısmında yer alıyor
+		-->
+		<div class="main-panel">
+
+			@RenderBody()
+			@await Component.InvokeAsync("_LayoutFooterComponentPartial")
+
+		</div>
+	</div>
+	</div>
+	<!-- Modal -->
+
+</body>
+@await Component.InvokeAsync("_LayoutScriptComponentPartial")
+
+</html>

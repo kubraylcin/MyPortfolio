@@ -49,6 +49,24 @@ namespace MyPortfolio.Controllers
             var value = _context.Messages.Find(id);
             return View(value);
         }
+		[HttpGet]
+		public IActionResult SendMessage()
+		{
+			return View("~/Views/Shared/Components/_ContactComponentPartial/Default.cshtml");
+		}
+		[HttpPost]
+		public IActionResult SendMessage(Message message) // Ana sayfadan gelen mesajlarin gonderimi
+		{
+			if (ModelState.IsValid)
+			{
+				message.SendDate = DateTime.Now;
+				message.IsRead = false;
+				_context.Messages.Add(message);
+				_context.SaveChanges();
+				return Json(new { success = true });
+			}
+			return Json(new { success = false });
+		}
 
-    }
+	}
 }
