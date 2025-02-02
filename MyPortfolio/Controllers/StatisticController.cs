@@ -20,6 +20,7 @@ namespace MyPortfolio.Controllers
 			ViewBag.v5=_context.Testimonials.Count();
 			ViewBag.v6=_context.Experiences.Count();
 			ViewBag.v7=_context.Portfolios.Count();
+			ViewBag.v8=_context.ToDoLists.Count();
 
 			return View();
 		}
