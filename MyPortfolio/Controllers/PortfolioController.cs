@@ -42,7 +42,7 @@ namespace MyPortfolio.Controllers
                 await _context.Images.AddAsync(image);
                 await _context.SaveChangesAsync();
 
-                // Create Portfolio with image
+                // Entity Constructure sayesinde resmiyle beraber PortfolYO olusturdum
                 Portfolio portfolio = new Portfolio
                 {
                     Title = viewModel.Title,
@@ -56,7 +56,7 @@ namespace MyPortfolio.Controllers
             }
             else // If no image is selected
             {
-                var portfolio = new Portfolio
+                var portfolio = new Portfolio //Resim haricindeki alanlari Portfolio nesnesine aktar
                 {
                     Title = viewModel.Title,
                     SubTitle = viewModel.SubTitle,
@@ -74,6 +74,8 @@ namespace MyPortfolio.Controllers
         public IActionResult Update(int portfolioId)
         {
             var value = _context.Portfolios.Include(i => i.Image).FirstOrDefault(x => x.PortfolioId == portfolioId);
+            
+
             if (value == null)
             {
                 return NotFound();

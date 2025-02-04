@@ -13,7 +13,7 @@ namespace MyPortfolio.ViewComponents
         }
         public IViewComponentResult Invoke()
         {
-            // Okunmamis mesajlar bildiirm kisminda listelenecek.
+            // Okunmamis mesajlar bildirim kisminda listelenecek.
             var unreadMessages = _context.Messages.Where(x => x.IsRead == false).ToList();
             ViewBag.UnreadMessagesCount = unreadMessages.Count;
             return View(unreadMessages);

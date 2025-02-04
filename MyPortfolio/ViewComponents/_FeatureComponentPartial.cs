@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MyPortfolio.DAL.Context;
 
 namespace MyPortfolio.ViewComponents
@@ -14,8 +15,9 @@ namespace MyPortfolio.ViewComponents
 
         public IViewComponentResult Invoke()
         {
-            var values = _context.Features.ToList();
-            return View(values);
+            var value = _context.Features.Include(i => i.Image).FirstOrDefault(); // One cikan alan icin sadece bir tane kayit olmasi gerektigi icin ilk kaydi view tarafina gonderiyoruz.
+            ViewBag.imageFileName = value.Image.FileName;
+            return View(value);
         }
     }
 }
