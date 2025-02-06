@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
 namespace MyPortfolio.Controllers
+
+    
 {
     public class DefaultController : Controller
     {

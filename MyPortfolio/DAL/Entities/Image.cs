@@ -17,5 +17,6 @@
         public string FileType { get; set; }
         public ICollection<Portfolio> Portfolios { get; set; }
         public ICollection<Feature> Features { get; set; } // Once cikan alan icin fotograf yukleme islemi
-    }
+		public ICollection<AppUser> AppUsers { get; set; }
+	}
 }

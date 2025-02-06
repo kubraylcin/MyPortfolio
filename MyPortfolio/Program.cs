@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using MyPortfolio.DAL.Context;
 using MyPortfolio.DAL.Extensions;
@@ -11,6 +12,23 @@ builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation(); ;
 builder.Services.AddDbContext<MyPortfolioContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+
+
+builder.Services.AddSession();
+builder.Services.AddAuthentication(
+	  CookieAuthenticationDefaults.AuthenticationScheme)
+		  .AddCookie(x =>
+		  {
+			  x.LoginPath = "/AdminLogin/Index";  // Giris yapmadiginda bu sayfaya yonlendirecek
+		  }
+	  );
+builder.Services.ConfigureApplicationCookie(options =>
+{
+	options.Cookie.HttpOnly = true;
+	options.ExpireTimeSpan = TimeSpan.FromMinutes(60); //siteye login olduktan 60 dk sonra otomatik cikis yapar
+	options.LoginPath = "/AdminLogin/Index/";
+	options.SlidingExpiration = true;
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -23,9 +41,9 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
+app.UseSession();
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

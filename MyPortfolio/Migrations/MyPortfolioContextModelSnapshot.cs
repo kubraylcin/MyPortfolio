@@ -47,6 +47,72 @@ namespace MyPortfolio.Migrations
                     b.ToTable("Abouts");
                 });
 
+            modelBuilder.Entity("MyPortfolio.DAL.Entities.AppUser", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid?>("ImageId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Surname")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ImageId");
+
+                    b.ToTable("AppUser");
+                });
+
             modelBuilder.Entity("MyPortfolio.DAL.Entities.Contact", b =>
                 {
                     b.Property<int>("ContactId")
@@ -324,6 +390,15 @@ namespace MyPortfolio.Migrations
                     b.ToTable("ToDoLists");
                 });
 
+            modelBuilder.Entity("MyPortfolio.DAL.Entities.AppUser", b =>
+                {
+                    b.HasOne("MyPortfolio.DAL.Entities.Image", "Image")
+                        .WithMany("AppUsers")
+                        .HasForeignKey("ImageId");
+
+                    b.Navigation("Image");
+                });
+
             modelBuilder.Entity("MyPortfolio.DAL.Entities.Feature", b =>
                 {
                     b.HasOne("MyPortfolio.DAL.Entities.Image", "Image")
@@ -344,6 +419,8 @@ namespace MyPortfolio.Migrations
 
             modelBuilder.Entity("MyPortfolio.DAL.Entities.Image", b =>
                 {
+                    b.Navigation("AppUsers");
+
                     b.Navigation("Features");
 
                     b.Navigation("Portfolios");

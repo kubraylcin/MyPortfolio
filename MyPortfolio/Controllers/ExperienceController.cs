@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MyPortfolio.DAL.Context;
 using MyPortfolio.DAL.Entities;
 using System.Linq;
 
 namespace MyPortfolio.Controllers
 {
+	[Authorize(Roles = "Admin")]
 	public class ExperienceController : Controller
 	{
 		private readonly MyPortfolioContext _context;

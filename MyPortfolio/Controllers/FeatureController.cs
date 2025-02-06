@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.EntityFrameworkCore;
 using MyPortfolio.DAL.Context;
@@ -9,7 +10,8 @@ using System;
 
 namespace MyPortfolio.Controllers
 {
-    public class FeatureController : Controller
+	[Authorize(Roles = "Admin")]
+	public class FeatureController : Controller
     {
         private readonly MyPortfolioContext _context;
         private readonly IImageHelper _imageHelper;

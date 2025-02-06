@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MyPortfolio.DAL.Context;
 using MyPortfolio.DAL.Entities;
 
 namespace MyPortfolio.Controllers
 {
-    public class ToDoListController : Controller
+	[Authorize(Roles = "Admin")]
+	public class ToDoListController : Controller
     {
         private readonly MyPortfolioContext _context;
 

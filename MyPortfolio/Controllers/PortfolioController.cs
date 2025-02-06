@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyPortfolio.DAL.Context;
 using MyPortfolio.DAL.Entities;
@@ -7,7 +8,8 @@ using MyPortfolio.Models;
 
 namespace MyPortfolio.Controllers
 {
-    public class PortfolioController : Controller
+	[Authorize(Roles = "Admin")]
+	public class PortfolioController : Controller
     {
         private readonly MyPortfolioContext _context;
         private readonly IImageHelper _imageHelper;

@@ -1,11 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MyPortfolio.DAL.Context;
 using MyPortfolio.DAL.Entities;
 using System.Linq;
 
 namespace MyPortfolio.Controllers
 {
-    public class MessageController : Controller
+	[Authorize(Roles = "Admin")]
+	public class MessageController : Controller
     {
         private readonly MyPortfolioContext _context;
 
