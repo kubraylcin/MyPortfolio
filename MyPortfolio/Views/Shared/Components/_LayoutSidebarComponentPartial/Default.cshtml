@@ -37,8 +37,8 @@
 		</div>
 		<ul class="nav">
 			<li class="nav-item">
-				<a href="/Statistic/Index">
-					<i class="la la-dashboard"></i>
+				<a asp-controller="Statistic" asp-action="Index">
+					<i class="la la-bar-chart"></i>
 					<p>İstatistikler</p>
 				</a>
 			</li>
@@ -49,14 +49,15 @@
 				</a>
 			</li>
 			<li class="nav-item">
-				<a href="/ToDoList/Index">
+				<a asp-controller="ToDoList" asp-action="Index">
 					<i class="la la-list"></i>
 					<p>Yapılacaklar</p>
 					
 				</a>
 			</li>
 			<li class="nav-item">
-				<a href="/About/Index/">
+				
+				<a asp-controller="About" asp-action="Index">
 					<i class="la la-info-circle"></i>
 					<p>Hakkımda</p>
 				</a>
