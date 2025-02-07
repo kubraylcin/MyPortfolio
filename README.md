@@ -19,7 +19,7 @@ Admin paneli, siteyle ilgili istatistiklerin görüntülenebilmesi, admin bilgil
 - Görsel Yükleme ve Güncelleme İşlemleri
 - Responsive Tasarım
 
-#Sitenin Görselleri
+# Sitenin Görselleri
 ___ 
 ![ANA SAYFA](wwwroot/images/feature.png)
 ![About](wwwroot/images/about.png)
