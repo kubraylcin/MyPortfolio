@@ -190,7 +190,7 @@ namespace MyPortfolio.Migrations
                         new
                         {
                             Id = new Guid("3b09e0c6-c435-43eb-bf31-28683852ee31"),
-                            ConcurrencyStamp = "bbc74dee-0f08-4047-b6c3-229661f99388",
+                            ConcurrencyStamp = "153dda93-4fca-4bff-96c6-3740857a0d10",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -279,17 +279,17 @@ namespace MyPortfolio.Migrations
                         {
                             Id = new Guid("612430b6-0b01-40e7-9957-bc699e3050cb"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "45b35949-b478-49b3-85ca-3dee183d9902",
+                            ConcurrencyStamp = "65f17a0b-0a0f-46b8-a819-122ba5fb4dfa",
                             Email = "kubrayalcin.272@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             Name = "Kübra",
                             NormalizedEmail = "KUBRAYALCİN.272@GMAİL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBr15NtQAEUXO9K/S9hKlOfQoGJjmau73Cm0tM/qfy2ICn92oNtjotMhWo8XANRRrQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAndo31PxHkbSvJp+83FKzgQ4NPC/l2bI+glj6iCnCpdWpgNYoApB3TBqYwRifnnmQ==",
                             PhoneNumber = "(546) 111 9999",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "b6284025-5c6b-46ab-be06-b31a3abb6ffe",
+                            SecurityStamp = "f22954f4-990a-4382-b057-00682a2d9dad",
                             Surname = "Yalçın",
                             TwoFactorEnabled = false,
                             UserName = "admin"

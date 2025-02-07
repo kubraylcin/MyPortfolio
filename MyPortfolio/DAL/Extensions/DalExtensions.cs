@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.EntityFrameworkCore;
 using MyPortfolio.DAL.Context;
 using MyPortfolio.DAL.Entities;
@@ -12,11 +11,18 @@ namespace MyPortfolio.DAL.Extensions
     {
         public static IServiceCollection LoadDataLayerExtension(this IServiceCollection services, IConfiguration config)
         {
+            // **Veritabanı Bağlantısı**
             services.AddDbContext<MyPortfolioContext>(options =>
                 options.UseSqlServer(config.GetConnectionString("DefaultConnection")));
-			services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<MyPortfolioContext>()
-				.AddTokenProvider<DataProtectorTokenProvider<AppUser>>(TokenOptions.DefaultProvider).AddEntityFrameworkStores<MyPortfolioContext>();
-			services.AddScoped<IImageHelper, ImageHelper>(); // Gorselleri Image tablosunda tutacagimiz icin Helper yazdik.
+
+            // **ASP.NET Identity Yapılandırması**
+            services.AddIdentity<AppUser, AppRole>()
+                .AddEntityFrameworkStores<MyPortfolioContext>()
+                .AddDefaultTokenProviders();
+
+            // **Helper Sınıflarının Bağımlılık Enjeksiyonu**
+            services.AddScoped<IImageHelper, ImageHelper>();  // Görseller için helper
+
             return services;
         }
     }

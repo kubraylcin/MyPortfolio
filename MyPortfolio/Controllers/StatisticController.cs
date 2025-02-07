@@ -6,13 +6,7 @@ namespace MyPortfolio.Controllers
 {
 	[Authorize(Roles = "Admin")]
 	public class StatisticController : Controller
-	{
-		private readonly MyPortfolioContext _context;
-
-		public StatisticController(MyPortfolioContext context)
-		{
-			_context = context;
-		}
+	{ 
 		public IActionResult Index()
 		{
 			

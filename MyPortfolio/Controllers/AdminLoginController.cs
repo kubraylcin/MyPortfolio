@@ -29,35 +29,41 @@ namespace MyPortfolio.Controllers
 			return View();
 		}
 
-		[HttpPost]
-		public async Task<IActionResult> Index(UserLoginViewModel model)
-		{
-			if (ModelState.IsValid)
-			{
-				var result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, false, true);
-				if (result.Succeeded)
-				{
-					var userId = _userManager.Users.Where(x => x.UserName == model.UserName).Select(y => y.Id).FirstOrDefault();
+        [HttpPost]
+        public async Task<IActionResult> Index(UserLoginViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, false, true);
 
-					var userRoleId = _context.UserRoles.Where(x => x.UserId.Equals(userId)).Select(y => y.RoleId).FirstOrDefault();
-					var adminRoleId = _roleManager.Roles.Where(x => x.Name.Equals("Admin") || x.Name.Equals("admin")).Select(y => y.Id).FirstOrDefault();
+                if (result.Succeeded)
+                {
+                    var userId = _userManager.Users.Where(x => x.UserName == model.UserName).Select(y => y.Id).FirstOrDefault();
+                    var userRoleId = _context.UserRoles.Where(x => x.UserId.Equals(userId)).Select(y => y.RoleId).FirstOrDefault();
+                    var adminRoleId = _roleManager.Roles.Where(x => x.Name.Equals("Admin") || x.Name.Equals("admin")).Select(y => y.Id).FirstOrDefault();
 
-					if (userRoleId == adminRoleId) // Eger giris yapan kullanicinin rol id'si Admin rolunun id'sine esit ise Admin paneline yonlendirilecek.
-					{
-						return RedirectToAction("Index", "Statistic");
-					}
+                    if (userRoleId == adminRoleId)
+                    {
+                        return RedirectToAction("Index", "Statistic");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Kullanıcı Admin rolüne sahip değil.");
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Kullanıcı adı veya şifre yanlış.");
+                }
+            }
 
-				}
-				else
-				{
-					return RedirectToAction("Index", "AdminLogin");
-				}
-			}
+            // Return the model with validation errors if any
+            return View(model);
+        }
 
-			return View();
-		}
 
-		public async Task<IActionResult> LogOut()
+
+        public async Task<IActionResult> LogOut()
 		{
 			await _signInManager.SignOutAsync();
 			return RedirectToAction("Index", "Default");

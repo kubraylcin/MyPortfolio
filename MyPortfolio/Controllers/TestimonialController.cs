@@ -42,7 +42,7 @@ namespace MyPortfolio.Controllers
 			}
 			else
 			{
-				testimonial.ImageUrl = "/images/asdasd_723.png"; // Görsel yüklenmezse varsayılan görsel
+				testimonial.ImageUrl = "/images/avatar.png"; // Görsel yüklenmezse varsayılan görsel
 			}
 
 			_context.Testimonials.Add(testimonial);
