@@ -31,3 +31,4 @@ ___
 ![Mesajlar](wwwroot/images/mesajlar.png)
 ![Admin Giriş Sayfası](wwwroot/images/login.png)
 
+
