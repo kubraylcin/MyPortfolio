@@ -21,14 +21,14 @@ Admin paneli, siteyle ilgili istatistiklerin görüntülenebilmesi, admin bilgil
 
 ## Sitenin Görselleri
 ___ 
-![ANA SAYFA](wwwroot/images/feature.png)
-![About](wwwroot/images/about.png)
-![Referanslar](wwwroot/images/referanslar.png)
-![Projeler](wwwroot/images/projeler.png)
-![İletişim](wwwroot/images/iletisim.png)
-![Admin Paneli](wwwroot/images/istatistik.png)
-![Ayarlar](wwwroot/images/ayarlar.png)
-![Mesajlar](wwwroot/images/mesajlar.png)
-![Admin Giriş Sayfası](wwwroot/images/login.png)
+![ANA SAYFA](./wwwroot/images/feature.png)
+![About](./wwwroot/images/about.png)
+![Referanslar](./wwwroot/images/referanslar.png)
+![Projeler](./wwwroot/images/projeler.png)
+![İletişim](./wwwroot/images/iletisim.png)
+![Admin Paneli](./wwwroot/images/istatistik.png)
+![Ayarlar](./wwwroot/images/ayarlar.png)
+![Mesajlar](./wwwroot/images/mesajlar.png)
+![Admin Giriş Sayfası](./wwwroot/images/login.png)
 
 
