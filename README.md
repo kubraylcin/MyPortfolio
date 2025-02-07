@@ -20,7 +20,7 @@ Admin paneli, siteyle ilgili istatistiklerin görüntülenebilmesi, admin bilgil
 - Responsive Tasarım
 
 ## Sitenin Görselleri
-___ 
+
 ## ANA SAYFA
 ![Ana Sayfa](https://github.com/user-attachments/assets/27d899b4-44cd-4208-a2ac-b7250cc83045)
 ![](https://github.com/user-attachments/assets/a5008d08-93c2-4472-a838-5773947e462d)
